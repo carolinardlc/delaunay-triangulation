@@ -34,10 +34,9 @@ def main():
 
 def modificar_imagen(imagen: Image) -> Image:
     imagen_modificada = imagen.convert('L') # greyscale
-    imagen_modificada = imagen_modificada.filter(ImageFilter.GaussianBlur(5)) # blur
     imagen_modificada = imagen_modificada.filter(ImageFilter.FIND_EDGES) # encontrar bordes, la imangen sale muy oscura
-    imagen_modificada = ImageEnhance.Brightness(imagen_modificada).enhance(20.0) # agrega brillo a la imagen
-    imagen_modificada = imagen_modificada.filter(ImageFilter.GaussianBlur(5)) # blur
+    imagen_modificada = ImageEnhance.Brightness(imagen_modificada).enhance(10.0) # agrega brillo a la imagen
+    imagen_modificada = imagen_modificada.filter(ImageFilter.GaussianBlur(1)) # blur
 
     return imagen_modificada
 
